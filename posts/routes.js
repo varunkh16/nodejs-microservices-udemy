@@ -33,6 +33,8 @@ router.post('/posts', async (req, res) => {
                 id,
                 title
             }
+        }).catch((err) => {
+            console.log(err.message);
         });
 
         res.status(201).json(posts[id]);

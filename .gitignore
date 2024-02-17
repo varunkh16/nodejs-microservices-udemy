@@ -1,11 +1,22 @@
+# Client gitignore files
 client/package-lock.json
+
+# comments microservice gitignore files
 comments/node_modules/
 comments/package-lock.json
+
+# event-bus microservice gitignore files
 event-bus/node_modules/
 event-bus/package-lock.json
+
+# moderation microservice gitignore files
 moderation/node_modules/
 moderation/package-lock.json
+
+# posts microservice gitignore files
 posts/node_modules/
 posts/package-lock.json
+
+# query microservice gitignore files
 query/node_modules/
 query/package-lock.json
