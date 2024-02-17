@@ -28,7 +28,7 @@ router.post('/posts', async (req, res) => {
         };
 
         await axios.post("http://localhost:4005/events", {
-            type: "Post Created",
+            type: "PostCreated",
             data: {
                 id,
                 title
@@ -41,4 +41,9 @@ router.post('/posts', async (req, res) => {
     }
 });
 
+router.post('/events', (req, res) => {
+    console.info("Received Event : "+req.body.type);
+
+    res.send({});
+});
 module.exports = router;

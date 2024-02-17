@@ -45,4 +45,9 @@ router.post('/posts/:id/comments', async (req, res) => {
     }
 });
 
+router.post('/events', (req, res) => {
+    console.info("Received Event : "+req.body.type);
+
+    res.send({});
+});
 module.exports = router;
