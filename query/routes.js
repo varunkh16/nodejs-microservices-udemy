@@ -4,15 +4,7 @@ const axios = require("axios");
 
 const posts = {};
 
-router.get('/posts', (req, res) => {
-    res.send(posts);
-});
-
-router.post('/events', (req, res) => {
-    console.info("Received Event : " + req.body.type);
-
-    const { type, data } = req.body;
-
+const handleEvent = (type, data) => {
     if (type == 'PostCreated') {
         const { id, title } = data;
         posts[id] = { id, title, comments: [] };
@@ -36,7 +28,22 @@ router.post('/events', (req, res) => {
         comment.content = content;
         comment.status = status;
     }
+};
+
+router.get('/posts', (req, res) => {
+    res.send(posts);
+});
+
+router.post('/events', (req, res) => {
+    console.info("Received Event : " + req.body.type);
+
+    const { type, data } = req.body;
+
+    handleEvent(type, data);
 
     res.send({});
 });
-module.exports = router;
+module.exports = {
+    router,
+    handleEvent
+};
