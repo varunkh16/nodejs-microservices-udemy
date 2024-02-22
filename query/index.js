@@ -15,7 +15,7 @@ app.use('/', queryRoutes);
 app.listen(port, async () => {
     console.log(`Query service running on ${port}`);
     try {
-        let res = await axios.get('http://localhost:4005/events')
+        let res = await axios.get('http://event-bus-srv:4005/events')
 
         for (let event of res.data) {
             console.info("Processing event : ", event.type);
