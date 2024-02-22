@@ -16,7 +16,7 @@ router.get('/posts', (req, res) => {
     }
 });
 
-router.post('/posts', async (req, res) => {
+router.post('/posts/create', async (req, res) => {
     try {
         console.info("inside create posts route");
         const { title } = req.body;
